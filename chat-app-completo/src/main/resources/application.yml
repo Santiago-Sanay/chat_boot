@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      database: chat_app
+      uri: mongodb+srv://sssanay:sssanay@moviles.b0jey.mongodb.net/?retryWrites=true&w=majority&appName=Moviles
+
+server:
+  address: 0.0.0.0
+  port: 8080

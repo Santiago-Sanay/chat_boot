@@ -1,0 +1,592 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #22a800;
+  background-color: #3b3b3b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  color:#22a800;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Páginas */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #464646a4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.chat-container {
+  display: flex;
+  width: 80vw;
+  height: 80vh;
+  margin: 20px;
+  background-color: #e7ef0c;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.users-list {
+  flex: 1;
+  border-right: 1px solid #000000;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  color: #080808;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.users-list-container {
+  height: 100%;
+  width: 18vw;
+  overflow-y: auto;
+  padding: 0.5vh 2vw 0.5vh 2vw;
+}
+
+.logoutBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  height: 14vh;
+  width: 95%; /* Cambia este valor para aumentar el ancho */
+  max-width: 1200px; /* Opcional, para limitar el ancho máximo */
+  padding: 0vh 0vw 2vh 0vw;
+  background-color: #474747;
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+
+.NameAndLogout {
+  display: grid;
+  place-items: center;
+}
+
+#roomsList {
+  display: grid;
+}
+
+.users-list h2 {
+  font-size: 1.5rem;
+  color: #22a800;
+  margin-bottom: 10px;
+}
+
+.users-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-item,
+.room-item,
+.available-user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+  cursor: pointer;
+}
+
+.room-item {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+  padding-bottom: 2vh;
+}
+
+.user-item.active,
+.room-item.active {
+  background-color: #505050b2;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.available-user.active {
+  background-color: #a7a7a7b2;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.user-item img,
+.room-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.available-user img {
+  width: 60px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.user-item span,
+.room-item span,
+.available-user span {
+  font-weight: bold;
+}
+
+.separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.chat-area {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #757272;
+  /* Fondo oscuro */
+  color: #ffffff;
+  /* Texto blanco */
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 0px 10px 10px 10px;
+  max-width: 60%;
+  min-width: 8%;
+  word-wrap: break-word;
+  position: relative;
+  /* Para posicionar la hora */
+}
+
+.sender {
+  background-color: #648decad;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.receiver {
+  background-color: #262d31;
+  color: #d1d1d1;
+  align-self: flex-start;
+}
+
+.sender-name {
+  font-size: 0.85em;
+  color: #d3d3d3dd;
+  margin-bottom: 5px;
+}
+
+.timestamp {
+  font-size: 0.75em;
+  color: #b5b3b3;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+.message-input {
+  margin-top: auto;
+  display: flex;
+  background-color: #2a2f32;
+  /* Fondo oscuro para el input */
+  padding: 10px;
+  border-top: 1px solid #3a3f43;
+  /* Borde superior */
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #3a3f43;
+  /* Fondo oscuro para el input */
+  color: #ffffff;
+  /* Texto blanco */
+}
+
+.message-input button {
+  padding: 10px;
+  border: none;
+  background-color: #0b93f6;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #0a7ccc;
+  /* Azul más oscuro al pasar el ratón */
+}
+
+.hidden {
+  display: none;
+}
+
+.user-form {
+  max-width: 400px;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fcfcfcd5;
+  box-shadow: 0 4px 8px rgba(189, 15, 15, 0.1);
+  border-radius: 8px;
+}
+
+.user-form img {
+    margin-top: 20px; /* Añade espacio superior a la imagen */
+    margin-bottom: 20px; /* Añade espacio inferior a la imagen */
+    width: 200px; /* Ajusta el tamaño de la imagen */
+}
+
+
+.user-form input {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: #000000; /* Cambia este valor para personalizar el color del texto */
+  background-color: #ffffff; /* Asegúrate de que el fondo no interfiera */
+}
+
+
+.user-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center; 
+  
+}
+
+.user-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.user-form button {
+  padding: 12px;
+  border: none;
+  background-color: #22a800;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-item.offline {
+  opacity: 0.5;
+  color: #888;
+}
+
+.status-indicator {
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #54ff29;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+/* src/index.css */
+
+.user-item,
+.room-item {
+  position: relative;
+  padding: 10px;
+}
+
+.room-item {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 5px;
+  padding-bottom: 2vh;
+}
+
+.fotoynombre {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 25% 75%;
+}
+
+#addParticipantsForm {
+  display: grid;
+  place-items: center;
+}
+
+.usuarios {
+  border-bottom: 1px solid white;
+}
+
+.usuariosDisponibles {
+  width: 90%;
+}
+
+.usuariosDisponibles li {
+  background: #54636dbb;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+
+.new-message-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  border: 2px solid white;
+}
+
+/* modal */
+
+.grid-2col-boton {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 1vw;
+}
+
+.modalCentrao {
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.input {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-indent: 2vh;
+  height: 5vh;
+  border-radius: 2vh; 
+  margin-bottom: 4vh;
+}
+
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  z-index: 999;
+}
+
+.new-message-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  width: 24px;
+  /* Ajusta el tamaño del círculo según sea necesario */
+  height: 24px;
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+  text-align: center;
+  line-height: 24px;
+  /* Alinea verticalmente el texto */
+  border: 2px solid white;
+}
+
+.modal-content {
+  position: fixed;
+  display: grid;
+  justify-content: center;
+  margin-left: 30vw;
+  margin-top: 10vh;
+  background-color: white;
+  color: #213547;
+  border: 1px solid black;
+  width: 35vw;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 35vw;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.logoutBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+
+.NameAndLogout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user-name {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  width: 100%;
+}
+
+.boton-normal {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  background-color: #22a800;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-normal:hover {
+  background-color: #0056b3;
+}
+
+.logout {
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+  background-color: darkred;
+}
+
+
+.custom-header {
+  color: green; /* Color verde */
+  font-size: 2rem; /* Tamaño más grande (ajústalo según lo que necesites) */
+  font-weight: bold; /* Si deseas que el texto esté en negrita */
+}
+
+.custom-text {
+  font-size: 1.2rem; /* Ajusta el tamaño según sea necesario */
+  font-weight: bold; /* Pone el texto en negrita */
+  margin-bottom: 10px; /* Para dar algo de espacio debajo */
+}
+.icon-white {
+  filter: brightness(0) invert(1);
+}

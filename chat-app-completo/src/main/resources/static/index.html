@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Chat Application</title>
+</head>
+<body>
+
+<h2>One to One Chat | Spring Boot & WebSocket | By Alibou</h2>
+
+<div class="user-form" id="username-page">
+  <h2>Enter Chatroom</h2>
+  <form id="usernameForm">
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" name="nickname" required>
+
+    <label for="fullname">Real Name:</label>
+    <input type="text" id="fullname" name="realname" required>
+
+    <button type="submit">Enter Chatroom</button>
+  </form>
+</div>
+
+<div class="chat-container hidden" id="chat-page">
+  <div class="users-list">
+    <div class="users-list-container">
+      <h2>Usuarios conectados</h2>
+      <ul id="connectedUsers"></ul>
+      <ul id="roomsList"></ul>
+    </div>
+    <div>
+      <a class="createRoom" href="javascript:void(0)" id="createRoom">Crear grupo</a>
+      <p id="connected-user-fullname">Hola 2</p>
+      <a class="logout" href="javascript:void(0)" id="logout">Logout</a>
+    </div>
+  </div>
+
+  <div class="chat-area">
+    <div class="chat-area" id="chat-messages"></div>
+
+    <form id="messageForm" name="messageForm" class="hidden">
+      <div class="message-input">
+        <input autocomplete="off" type="text" id="message" placeholder="Type your message...">
+        <button>Send</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Static Section for Room Creation -->
+  <div id="createRoomSection" class="hidden">
+    <h3>Create a New Room</h3>
+    <form id="createRoomForm">
+      <label for="roomId">Room ID:</label>
+      <input type="text" id="roomId" name="roomId" required>
+      <button type="submit">Create Room</button>
+    </form>
+  </div>
+
+  <!-- Static Section for Adding Participants -->
+  <div id="addParticipantsSection" class="hidden">
+    <h3>Add Participants to Room</h3>
+    <form id="addParticipantsForm">
+      <label for="roomToAddParticipants">Room ID:</label>
+      <input type="text" id="roomToAddParticipants" name="roomToAddParticipants" required>
+      <button type="submit">Add Participants</button>
+    </form>
+    <h4>Available Users</h4>
+    <ul id="availableUsersList"></ul>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

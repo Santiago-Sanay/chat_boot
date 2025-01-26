@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      database: chat_app
+      uri: mongodb+srv://sbdaajedrez:sbdaajedrez@cluster0.sohlbyn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+server:
+    address: 0.0.0.0
+    port: 8080
